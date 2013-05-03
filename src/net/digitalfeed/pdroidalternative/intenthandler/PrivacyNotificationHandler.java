@@ -74,8 +74,8 @@ public class PrivacyNotificationHandler extends BroadcastReceiver {
 		
         final Preferences prefs = new Preferences(context);
         
-        boolean logEvent = prefs.getDoLogForPackage(packageName);
-        boolean notifyEvent = prefs.getDoNotifyForPackage(packageName);
+        boolean logEvent = prefs.getDoLogForPackage(packageName) | prefs.getDoLogForGlobal();
+        boolean notifyEvent = prefs.getDoNotifyForPackage(packageName) | prefs.getDoNotifyForGlobal();
         
         if (logEvent || notifyEvent) {        	
         	DBInterface dbInterface = DBInterface.getInstance(context);

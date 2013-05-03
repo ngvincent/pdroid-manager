@@ -43,6 +43,8 @@ public class Preferences {
 	public static final String APPLIST_LAST_APP_TYPE_SYSTEM = "system";
 	public static final String APPLIST_LAST_APP_TYPE_USER = "user";
 	public static final String APPLIST_LAST_APP_TYPE_ALL = "all";
+
+        private static final String GLOBAL_REFERENCE = "global";
 	
 	private static final String SHARED_PREFERENCES_NAME = "net.digitalfeed.pdroidalternative";
 	private static final String IS_CACHE_VALID = "isCacheValid";
@@ -103,6 +105,26 @@ public class Preferences {
 	public void setDoLogForPackage(String packageName, boolean doLog) {
 		Editor editor = this.prefs.edit();
 		editor.putBoolean(APP_LOG_SETTING_PREFIX + packageName, doLog);
+		editor.commit();
+	}
+
+	public boolean getDoNotifyForGlobal() {
+		return this.prefs.getBoolean(APP_NOTIFICATION_SETTING_PREFIX + GLOBAL_REFERENCE, false);
+	}
+	
+	public void setDoNotifyForGlobal(boolean doNotify) {
+		Editor editor = this.prefs.edit();
+		editor.putBoolean(APP_NOTIFICATION_SETTING_PREFIX + GLOBAL_REFERENCE, doNotify);
+		editor.commit();
+	}
+	
+	public boolean getDoLogForGlobal() {
+		return this.prefs.getBoolean(APP_LOG_SETTING_PREFIX + GLOBAL_REFERENCE, false);
+	}
+	
+	public void setDoLogForGlobal(boolean doLog) {
+		Editor editor = this.prefs.edit();
+		editor.putBoolean(APP_LOG_SETTING_PREFIX + GLOBAL_REFERENCE, doLog);
 		editor.commit();
 	}
 	
