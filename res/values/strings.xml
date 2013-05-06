@@ -373,4 +373,10 @@ alternative name, rather than the name pdroid-manager.</p>
 	<string name="application_list_app_spacer" translatable="false">&#160;|&#160;</string>
 	<string name="detail_custom_value_spacer" translatable="false">&#160;|&#160;</string>
 	<string name="backup_filename_extension" translatable="false">.xml</string>
+	
+	<string name="preferences_global_settings_log" >Toggle Log access for all applications </string>
+	<string name="preferences_global_settings_notify" >Toggle Notify on access for all applications</string>
+	<string name="preferences_heading_global">Global Settings</string>
+	<string name="preferences_global_title">Global Settings</string>
+	<string name="preferences_global_summary">Modify Global Settings</string>
 </resources>

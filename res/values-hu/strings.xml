@@ -368,4 +368,11 @@ the error fits the problem -->
 ]]></string>
 
 	<string name="pdroid_get_support">A PDroid Manager téma megnyitása az XDA developers fórumon</string>
+
+
+	<string name="preferences_global_settings_log">Váltás Log hozzáférést minden alkalmazáshoz</string>
+	<string name="preferences_global_settings_notify">Váltás Értesítés a hozzáférés minden alkalmazáshoz</string>
+	<string name="preferences_heading_global">Globális beállítások</string>
+	<string name="preferences_global_title">Globális beállítások</string>
+	<string name="preferences_global_summary">Globális beállítások módosítása</string>
 </resources>

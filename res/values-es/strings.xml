@@ -361,5 +361,10 @@ un nombre alternativo, diferente al nombre de pdroid-manager.</p>
 ]]></string>
 
 	<string name="pdroid_get_support">Abrir el hilo de soporte de PDroid Manager en XDA developers (en inglés)</string>
-	
+
+	<string name="preferences_global_settings_log"> Activar el acceso de registro para todas las aplicaciones</string>
+	<string name="preferences_global_settings_notify">Alternar Notifique relativo al acceso de todas las aplicaciones</string>
+	<string name="preferences_heading_global">Configuración global</string>
+	<string name="preferences_global_title">Configuración global</string>
+	<string name="preferences_global_summary">Modificar la configuración global</string>
 </resources>

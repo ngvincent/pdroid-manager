@@ -220,4 +220,10 @@
 	<!-- dialog boxes for credits/about info which can be opened from the preferences list -->
 	<string name="credits_dialog_title">Информация о программе PDroid Менеджер</string>
 	<string name="about_dialog_title">О программе PDroid Менеджер</string>
+	
+	<string name="preferences_global_settings_log">Переключить Вход доступа для всех приложений</string>
+	<string name="preferences_global_settings_notify">Переключить Сообщите доступа для всех приложений</string>
+	<string name="preferences_heading_global">Глобальные настройки</string>
+	<string name="preferences_global_title">Глобальные настройки</string>
+	<string name="preferences_global_summary">Изменение общих настроек </string>
 </resources>

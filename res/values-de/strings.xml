@@ -193,4 +193,9 @@
 		<string name="setting_option_custom">Benutzerdefiniert</string>
 		<string name="setting_option_deny">Verweigern</string>
 
+	<string name="preferences_global_settings_log" >Toggle Log Zugang für alle Anwendungen</string>
+	<string name="preferences_global_settings_notify" >Benachrichtigen Sie sehen auf den Zugang für alle Anwendungen</string>
+	<string name="preferences_heading_global">Globale Einstellungen</string>
+	<string name="preferences_global_title">Globale Einstellungen</string>
+	<string name="preferences_global_summary">Ändern Globale Einstellungen</string>
 </resources>

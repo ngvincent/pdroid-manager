@@ -264,5 +264,9 @@
 			<string name="preferences_default_profile_summary_selected">Current profile: </string>
 
 	<!-- END FUTURE FEATURE STRINGS -->
-	
+	<string name="preferences_global_settings_log">Toggle Log toegang voor alle toepassingen </string>
+	<string name="preferences_global_settings_notify">Toggle Houd de toegang voor alle toepassingen</string>
+	<string name="preferences_heading_global">Global Settings </string>
+	<string name="preferences_global_title">Global Settings </string>
+	<string name="preferences_global_summary">Wijzig Globale instellingen</string>
 </resources>
