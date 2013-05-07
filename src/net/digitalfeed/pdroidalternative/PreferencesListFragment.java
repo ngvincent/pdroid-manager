@@ -47,6 +47,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 public class PreferencesListFragment extends ListFragment {
 
@@ -226,6 +227,21 @@ public class PreferencesListFragment extends ListFragment {
 								showInformationDialog(
 										getString(R.string.about_dialog_title),
 										getString(R.string.about_dialog_body));
+							}
+						})
+				);
+		preferences.add(
+				new PreferenceHeader(getString(R.string.preferences_heading_global))
+				);
+		preferences.add(
+				new Preference(
+						getString(R.string.preferences_global_title),
+						getString(R.string.preferences_global_summary),
+						null,
+						new ListItemClickListener() {
+							@Override
+							public void onListItemClick (ListView l, View v, int position, long id) {
+								showGlobalSettingsDialog();
 							}
 						})
 				);
@@ -529,6 +545,20 @@ public class PreferencesListFragment extends ListFragment {
         newFragment.show(ft, "dialog");
     }
     
+    /**
+     * Displays the Global Settings dialog
+     */
+    private void showGlobalSettingsDialog() {
+    	 FragmentTransaction ft = getFragmentManager().beginTransaction();
+         Fragment prev = getFragmentManager().findFragmentByTag("dialog");
+         if (prev != null) {
+             ft.remove(prev);
+         }
+
+         // Create and show the dialog.
+         GlobalSettingsDialogFragment newFragment = GlobalSettingsDialogFragment.newInstance();
+         newFragment.show(ft, "dialog");
+    }
     
 
     
@@ -764,6 +794,80 @@ public class PreferencesListFragment extends ListFragment {
             })
             .setView(rootView)
             .create();
+        }
+        
+        private void closeDialog() {
+        	this.dismiss();
+        }
+    }
+    
+    /**
+     * Dialog to set global settings (logging/intent, default profile)
+     * @author ngvincent
+     *
+     */
+    public static class GlobalSettingsDialogFragment extends DialogFragment {
+
+    	private View layout;
+    	
+        public static GlobalSettingsDialogFragment newInstance() {
+            return new GlobalSettingsDialogFragment();
+        }
+        
+        public GlobalSettingsDialogFragment(){
+        	
+        }
+    
+        
+        @Override
+        public Dialog onCreateDialog(Bundle savedInstanceState) {
+        	LayoutInflater inflater = getActivity().getLayoutInflater();
+        	layout = inflater.inflate(R.layout.preferences_global_settings, null);
+        	
+        	// Get settings to populate layout
+        	
+        	AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        	builder.setView(layout);
+        	
+        	// Load global settings from preferences
+        	Preferences prefs = new Preferences(getActivity());
+    		
+        	ToggleButton toggleLog = (ToggleButton) layout.findViewById(R.id.preferences_global_settings_log);
+        	toggleLog.setChecked(prefs.getDoLogForGlobal());
+        	
+        	ToggleButton toggleNotify = (ToggleButton) layout.findViewById(R.id.preferences_global_settings_notify);
+        	toggleNotify.setChecked(prefs.getDoNotifyForGlobal());
+
+        	
+        	//builder.setIcon(R.drawable.alert_dialog_icon)
+        	builder.setTitle(R.string.preferences_global_title)
+            // Create the 'ok' button
+            .setPositiveButton(R.string.alert_dialog_ok, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int id) {
+                	// save
+                	Preferences prefs = new Preferences(getActivity());
+                	
+                	ToggleButton toggleLog = (ToggleButton) layout.findViewById(R.id.preferences_global_settings_log);
+                	
+                	ToggleButton toggleNotify = (ToggleButton) layout.findViewById(R.id.preferences_global_settings_notify);
+                	
+                	prefs.setDoLogForGlobal(toggleLog.isChecked());
+                	prefs.setDoNotifyForGlobal(toggleNotify.isChecked());
+                }
+            });
+        	
+        	// Create the 'cancel' button
+        	builder.setNegativeButton(R.string.alert_dialog_cancel, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int id) {
+                	closeDialog();
+                }
+            });
+        	
+        	
+        	return builder.create();
+        	
         }
         
         private void closeDialog() {
